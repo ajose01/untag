@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'geocoder'
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails'
