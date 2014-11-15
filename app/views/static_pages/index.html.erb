@@ -1,2 +1,26 @@
 <h1>Welcome to Untag</h1>
 <p>The anonymous and free way to report graffiti</p>
+
+<button onclick="getLocation()">Try It</button>
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+	
+    $.get( "position", { Latitude: position.coords.latitude, Longitude: position.coords.longitude } )
+  .done(function( data ) {
+    alert( "Data Loaded: " + data.address );
+  });
+
+}
+</script>
